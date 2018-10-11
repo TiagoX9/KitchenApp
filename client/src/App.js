@@ -12,6 +12,7 @@ import PrivateRoute from "./components/common/PrivateRoute";
 
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
+import Footer from "./components/layout/Footer";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -45,6 +46,7 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact paht="/" component={Landing} />
+            <Footer />
           </div>
         </Router>
       </Provider>
