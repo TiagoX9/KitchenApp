@@ -6,11 +6,12 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/profileActions";
 
 import { Provider } from "react-redux";
-import store from "store";
+import store from "./store";
 
 import PrivateRoute from "./components/common/PrivateRoute";
 
 import Navbar from "./components/layout/Navbar";
+import Landing from "./components/layout/Landing";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -39,22 +40,14 @@ if (localStorage.jwtToken) {
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact paht="/" component={Landing} />
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }
